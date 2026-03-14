@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{budget-buddy-backend-development}}/api/v1.0/category/10"
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"phone bills\",\r
+
+    \    \"type\": \"expense\",\r
+
+    \    \"icon\": \"\"\r
+
+    }"
+order: 3000

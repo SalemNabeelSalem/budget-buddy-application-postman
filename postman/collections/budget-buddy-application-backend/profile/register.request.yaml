@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{budget-buddy-backend-production}}/api/v1.0/profile/register"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"fullName\": \"salem nabeel salem\",\r
+
+    \    \"email\": \"docet30766@dolofan.com\",\r
+
+    \    \"password\": \"123456\"\r
+
+    }"
+auth:
+  type: noauth
+order: 1000

@@ -1,0 +1,9 @@
+name: budget-buddy-application
+values:
+  - key: budget-buddy-backend-production
+    value: ""
+    enabled: true
+  - key: budget-buddy-backend-development
+    value: ""
+    enabled: true
+color: null

@@ -1,0 +1,89 @@
+$kind: http-request
+description: >-
+  ## Login
+
+
+  Authenticates a user with their credentials and returns a bearer token to be
+  used in subsequent authenticated requests.
+
+
+  ---
+
+
+  ### Request Body
+
+
+  The request body must be sent as JSON with the following fields:
+
+
+  | Field | Type | Required | Description |
+
+  | --- | --- | --- | --- |
+
+  | `email` | string | ✅ Yes | The registered email address of the user |
+
+  | `password` | string | ✅ Yes | The user's account password |
+
+
+  **Example:**
+
+
+  ``` json
+
+  {
+    "email": "user@example.com",
+    "password": "yourpassword"
+  }
+
+   ```
+
+  ---
+
+
+  ### Successful Response — `200 OK`
+
+
+  On successful authentication, the API returns a bearer token:
+
+
+  ``` json
+
+  {
+    "token": "<bearer_token>"
+  }
+
+   ```
+
+  ---
+
+
+  ### Notes
+
+
+  - The returned bearer token must be included in the `Authorization` header of
+  all subsequent authenticated requests:
+      
+      ```
+      Authorization: Bearer <token>
+      
+       ```
+
+      
+  - Tokens may have an expiration time — re-authenticate if you receive a `401
+  Unauthorized` response.
+      
+  - Store the token securely; avoid exposing it in logs or version control.
+url: "{{budget-buddy-backend-development}}/api/v1.0/profile/login"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\": \"isalemnabeelsalem@gmail.com\",\r
+
+    \    \"password\": \"123456\"\r
+
+    }"
+auth:
+  type: noauth
+order: 2000

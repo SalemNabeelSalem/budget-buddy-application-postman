@@ -1,0 +1,19 @@
+$kind: http-request
+url: http://localhost:8080/api/v1.0/filters/expenses
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"transportation\",\r
+
+    \    \"sortBy\": \"amount\",\r
+
+    \    \"startDate\": \"2026-01-01\",\r
+
+    \    \"endDate\": \"2026-06-01\",\r
+
+    \    \"direction\": \"ASC\"\r
+
+    }"
+order: 1000

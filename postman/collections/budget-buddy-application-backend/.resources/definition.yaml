@@ -1,0 +1,56 @@
+$kind: collection
+description: >-
+  # Budget Buddy — Backend API
+
+
+  This collection covers the full backend API for the **Budget Buddy** personal
+  finance application. It is organized into six functional modules, each
+  grouping the endpoints that belong to a specific domain of the application.
+
+
+  ## Modules
+
+
+  | Folder | Description |
+
+  | --- | --- |
+
+  | **profile** | User authentication and account management (register, login,
+  logout, profile operations) |
+
+  | **category** | Create, retrieve, and update transaction categories,
+  filterable by type (income / expense) |
+
+  | **incomes** | Full lifecycle management of income records — create, fetch
+  all, fetch top 5, filter by date range, get total amount, and delete |
+
+  | **expenses** | Full lifecycle management of expense records — create, fetch
+  all, filter by date range, get total amount, and delete |
+
+  | **filters** | Cross-resource filtering endpoints for querying incomes and
+  expenses with custom criteria |
+
+  | **dashboard** | Aggregated summary data intended to power the application's
+  main dashboard view |
+
+
+  ## Authentication
+
+
+  All requests inherit **Bearer token** authentication set at the collection
+  level. Obtain a token via the `login` endpoint in the **profile** folder and
+  set it as the collection-level bearer token before running other requests.
+
+
+  ## Base URL
+
+
+  Requests use the `{{budget-buddy-backend-development}}` or
+  `{{budget-buddy-backend-production}}` environment variable as the base URL.
+  Make sure the appropriate environment is active before sending requests.
+auth:
+  - id: 71c7cbfe-dc1c-4fba-a453-db03b8738b23
+    type: bearer
+    name: bearer auth
+    credentials:
+      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpc2FsZW1uYWJlZWxzYWxlbUBnbWFpbC5jb20iLCJpYXQiOjE3NzMzMzg1MzYsImV4cCI6MTc3MzM3NDUzNn0.VpFpwuBa-VGTH2N8u8Rf1Sq_LZoHD3PQG8JgZw59uQs
