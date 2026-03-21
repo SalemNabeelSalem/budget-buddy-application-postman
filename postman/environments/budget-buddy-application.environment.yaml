@@ -6,4 +6,7 @@ values:
   - key: budget-buddy-backend-development
     value: ""
     enabled: true
+  - key: version
+    value: ""
+    enabled: true
 color: null

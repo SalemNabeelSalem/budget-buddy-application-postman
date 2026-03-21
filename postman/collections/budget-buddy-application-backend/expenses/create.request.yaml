@@ -5,15 +5,15 @@ body:
   type: json
   content: "{\r
 
-    \    \"name\": \"getting the commission of 01/2026\",\r
+    \    \"name\": \"transportation to work daily month-02\",\r
 
     \    \"icon\": \"\",\r
 
-    \    \"date\": \"2026-02-01\",\r
+    \    \"date\": \"2026-02-31\",\r
 
-    \    \"categoryId\": 2,\r
+    \    \"categoryId\": 6,\r
 
-    \    \"amount\": 600\r
+    \    \"amount\": 400\r
 
     }"
 order: 1000

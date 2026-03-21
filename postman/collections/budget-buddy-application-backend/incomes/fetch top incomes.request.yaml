@@ -1,0 +1,78 @@
+$kind: http-request
+description: |-
+  ## Fetch Top Incomes
+
+  Retrieves the top income records for the authenticated user's profile, ordered by amount in descending order. Use the `limit` query parameter to control how many results are returned.
+
+  ---
+
+  ### Authentication
+
+  Uses **Bearer token** inherited from the collection. Ensure a valid token is set before sending the request.
+
+  ---
+
+  ### Query Parameters
+
+  | Parameter | Type    | Required | Description                                      |
+  |-----------|---------|----------|--------------------------------------------------|
+  | `limit`   | integer | Yes      | The maximum number of top income records to return. Example: `2` returns the top 2 incomes. |
+
+  ---
+
+  ### Variables Used
+
+  | Variable                          | Description                              |
+  |-----------------------------------|------------------------------------------|
+  | `{{budget-buddy-backend-development}}` | Base URL for the development environment |
+  | `{{version}}`                     | API version (e.g., `v1.0`)               |
+
+  ---
+
+  ### Example Request
+
+  ```
+  GET {{budget-buddy-backend-development}}/api/{{version}}/incomes/top?limit=2
+  ```
+
+  ---
+
+  ### Response
+
+  Returns a list of the top income records sorted by amount descending.
+
+  **Success — `200 OK`**
+
+  ```json
+  [
+    {
+      "id": 1,
+      "title": "Freelance Project",
+      "amount": 3000.00,
+      "category": "Freelance",
+      "date": "2026-03-15"
+    },
+    {
+      "id": 2,
+      "title": "Monthly Salary",
+      "amount": 2500.00,
+      "category": "Salary",
+      "date": "2026-03-01"
+    }
+  ]
+  ```
+
+  **Unauthorized — `401 Unauthorized`**
+
+  Returned when the Bearer token is missing or invalid.
+
+  ```json
+  {
+    "error": "Unauthorized"
+  }
+  ```
+url: "{{budget-buddy-backend-development}}/api/{{version}}/incomes/top?limit=1"
+method: GET
+queryParams:
+  limit: "1"
+order: 3000

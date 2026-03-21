@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{budget-buddy-backend-development}}/api/{{version}}/incomes/summary/total"
+method: GET
+order: 5000

@@ -49,8 +49,8 @@ description: >-
   `{{budget-buddy-backend-production}}` environment variable as the base URL.
   Make sure the appropriate environment is active before sending requests.
 auth:
-  - id: 71c7cbfe-dc1c-4fba-a453-db03b8738b23
+  - id: e45b3a5c-7eb3-4a42-a1e2-ca7a69cbd953
     type: bearer
     name: bearer auth
     credentials:
-      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpc2FsZW1uYWJlZWxzYWxlbUBnbWFpbC5jb20iLCJpYXQiOjE3NzMzMzg1MzYsImV4cCI6MTc3MzM3NDUzNn0.VpFpwuBa-VGTH2N8u8Rf1Sq_LZoHD3PQG8JgZw59uQs
+      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpc2FsZW1uYWJlZWxzYWxlbUBnbWFpbC5jb20iLCJpYXQiOjE3NzQxMDE1ODYsImV4cCI6MTc3NDEzNzU4Nn0.zEzinHBbzeaRO1Is82iskT552XnEEQMArjLlylgajcU

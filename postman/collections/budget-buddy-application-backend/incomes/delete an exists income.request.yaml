@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{budget-buddy-backend-development}}/api/{{version}}/incomes/4"
+method: DELETE
+order: 7000

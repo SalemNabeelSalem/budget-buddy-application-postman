@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{budget-buddy-backend-development}}/api/{{version}}/incomes/filters?star\
+  t-date=2026-01-01&end-date=2026-04-01"
+method: GET
+queryParams:
+  start-date: 2026-01-01
+  end-date: 2026-04-01
+order: 4000

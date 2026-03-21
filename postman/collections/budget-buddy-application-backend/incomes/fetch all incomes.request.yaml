@@ -1,0 +1,108 @@
+$kind: http-request
+description: >-
+  ## Fetch All Incomes
+
+
+  Retrieves a list of all income records stored in the system. Returns an array
+  of income objects, each containing details such as the income name, amount,
+  date, and associated category.
+
+
+  ---
+
+
+  ### Authentication
+
+
+  This request requires a **Bearer Token**. The token is inherited from the
+  collection-level auth configuration.
+
+
+  ```
+
+  Authorization: Bearer {{token}}
+
+   ```
+
+  ---
+
+
+  ### Request Details
+
+
+  | Property | Value |
+
+  | --- | --- |
+
+  | **Method** | `GET` |
+
+  | **URL** | `http://localhost:8080/api/v1.0/incomes/all` |
+
+  | **Body** | None |
+
+  | **Query Params** | None |
+
+
+  ---
+
+
+  ### Response
+
+
+  Returns a `200 OK` with a JSON array of income objects.
+
+
+  #### Response Fields
+
+
+  | Field | Type | Description |
+
+  | --- | --- | --- |
+
+  | `id` | integer | Unique identifier of the income record |
+
+  | `name` | string | Descriptive name of the income entry |
+
+  | `icon` | string | Icon identifier associated with the income (can be empty)
+  |
+
+  | `date` | string | Date of the income in `YYYY-MM-DD` format |
+
+  | `amount` | number | Monetary value of the income |
+
+  | `categoryId` | integer | ID of the category this income belongs to |
+
+  | `categoryName` | string | Name of the associated income category |
+
+  | `createdAt` | string | Timestamp when the record was created (ISO 8601) |
+
+  | `updatedAt` | string | Timestamp when the record was last updated (ISO 8601)
+  |
+
+
+  ---
+
+
+  ### Sample Response — 200 OK
+
+
+  ``` json
+
+  [
+    {
+      "id": 5,
+      "name": "salary month-01",
+      "icon": "",
+      "date": "2026-01-30",
+      "amount": 4000,
+      "categoryId": 20,
+      "categoryName": "salary",
+      "createdAt": "2026-03-15T14:17:50",
+      "updatedAt": "2026-03-15T14:17:50"
+    }
+  ]
+
+   ```
+url: "{{budget-buddy-backend-development}}/api/{{version}}/incomes"
+method: GET
+order: 2000

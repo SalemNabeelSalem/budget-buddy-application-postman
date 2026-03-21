@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{budget-buddy-backend-development}}/api/{{version}}/incomes/26"
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"salary month-06\",\r
+
+    \    \"icon\": \"🗓️\",\r
+
+    \    \"date\": \"2026-06-30\",\r
+
+    \    \"amount\": 4300.00,\r
+
+    \    \"categoryId\": 20\r
+
+    }"
+order: 6000
