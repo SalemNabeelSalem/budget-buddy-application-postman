@@ -1,4 +1,53 @@
 $kind: http-request
+description: |-
+  ## Delete an Existing Income
+
+  Permanently deletes an income record identified by its unique `id`. Once deleted, the record cannot be recovered.
+
+  ---
+
+  ### Authentication
+
+  This request inherits **Bearer Token** authentication from the parent collection. Ensure a valid token is set at the collection level before sending the request.
+
+  ```
+  Authorization: Bearer {{token}}
+  ```
+
+  ---
+
+  ### Path Parameter
+
+  | Parameter | Type    | Required | Description                                              |
+  |-----------|---------|----------|----------------------------------------------------------|
+  | `id`      | integer | Yes      | The unique identifier of the income record to delete. Example: `4` |
+
+  **Example URL:**
+  ```
+  DELETE {{budget-buddy-backend-development}}/api/{{version}}/incomes/4
+  ```
+
+  ---
+
+  ### Request Body
+
+  This request does not require a request body.
+
+  ---
+
+  ### Response
+
+  #### 204 No Content
+
+  Returns an empty response body upon successful deletion.
+
+  #### 404 Not Found
+
+  Returned when no income record exists with the given `id`.
+
+  | Field     | Type   | Description                              |
+  |-----------|--------|------------------------------------------|
+  | `message` | string | A description of the error that occurred |
 url: "{{budget-buddy-backend-development}}/api/{{version}}/incomes/4"
 method: DELETE
 order: 7000

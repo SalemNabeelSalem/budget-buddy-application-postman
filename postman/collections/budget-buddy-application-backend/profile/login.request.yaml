@@ -73,7 +73,7 @@ description: >-
   Unauthorized` response.
       
   - Store the token securely; avoid exposing it in logs or version control.
-url: "{{budget-buddy-backend-development}}/api/v1.0/profile/login"
+url: "{{budget-buddy-backend-development}}/api/{{version}}/profile/login"
 method: POST
 body:
   type: json

@@ -71,8 +71,8 @@ description: |-
     "error": "Unauthorized"
   }
   ```
-url: "{{budget-buddy-backend-development}}/api/{{version}}/incomes/top?limit=1"
+url: "{{budget-buddy-backend-development}}/api/{{version}}/incomes/top?limit=5"
 method: GET
 queryParams:
-  limit: "1"
+  limit: "5"
 order: 3000

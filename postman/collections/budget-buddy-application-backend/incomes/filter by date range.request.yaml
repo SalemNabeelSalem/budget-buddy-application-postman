@@ -1,4 +1,81 @@
 $kind: http-request
+description: |-
+  ## Fetch Top Incomes
+
+  Retrieves a filtered list of income records within a specified date range.
+
+  ## Endpoint
+
+  `GET /api/{{version}}/incomes/filters`
+
+  ## Query Parameters
+
+  | Parameter | Type | Required | Description |
+  | --- | --- | --- | --- |
+  | `start-date` | string | Yes | The start of the date range in `YYYY-MM-DD` format. |
+  | `end-date` | string | Yes | The end of the date range in `YYYY-MM-DD` format. |
+
+  ## Example Request
+
+  ```
+  GET {{budget-buddy-backend-development}}/api/{{version}}/incomes/filters?start-date=2026-01-01&end-date=2026-04-01
+
+   ```
+
+  ## Example Response
+
+  ``` json
+  [
+    {
+      "id": 23,
+      "name": "salary month-03",
+      "icon": "🗓️",
+      "date": "2026-03-30",
+      "amount": 4200,
+      "categoryId": 20,
+      "categoryName": "salarys",
+      "createdAt": "2026-03-21T19:30:22",
+      "updatedAt": "2026-03-21T19:30:22"
+    },
+    {
+      "id": 22,
+      "name": "salary month-02",
+      "icon": "🗓️",
+      "date": "2026-02-28",
+      "amount": 4100,
+      "categoryId": 20,
+      "categoryName": "salarys",
+      "createdAt": "2026-03-21T17:58:55",
+      "updatedAt": "2026-03-21T17:58:55"
+    },
+    {
+      "id": 21,
+      "name": "salary month-01",
+      "icon": "🗓️",
+      "date": "2026-01-30",
+      "amount": 4000,
+      "categoryId": 20,
+      "categoryName": "salarys",
+      "createdAt": "2026-03-21T17:30:29",
+      "updatedAt": "2026-03-21T17:30:29"
+    }
+  ]
+
+   ```
+
+  ## Response Fields
+
+  | Field | Type | Description |
+  | --- | --- | --- |
+  | `id` | integer | Unique identifier of the income record. |
+  | `name` | string | Name/label of the income entry. |
+  | `icon` | string | Emoji icon associated with the income entry. |
+  | `date` | string | Date of the income in `YYYY-MM-DD` format. |
+  | `amount` | number | The income amount. |
+  | `categoryId` | integer | ID of the category this income belongs to. |
+  | `categoryName` | string | Name of the category this income belongs to. |
+  | `createdAt` | string | Timestamp when the record was created (ISO 8601). |
+  | `updatedAt` | string | Timestamp when the record was last updated (ISO 8601). |
 url: "{{budget-buddy-backend-development}}/api/{{version}}/incomes/filters?star\
   t-date=2026-01-01&end-date=2026-04-01"
 method: GET

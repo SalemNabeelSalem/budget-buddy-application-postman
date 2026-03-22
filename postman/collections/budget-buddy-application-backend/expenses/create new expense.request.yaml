@@ -1,0 +1,109 @@
+$kind: http-request
+description: >-
+  ## Create New Expense
+
+
+  Creates a new expense record in the system. Accepts expense details in the
+  request body and returns the newly created expense object upon success.
+
+
+  ---
+
+
+  ### Authentication
+
+
+  This request inherits **Bearer token** authentication from the collection
+  level. Ensure a valid token is set in the active environment before sending.
+
+
+  ---
+
+
+  ### Request Body
+
+
+  | Field | Type | Required | Description |
+
+  |---|---|---|---|
+
+  | `name` | string | Yes | A descriptive label for the expense entry (e.g.,
+  "Transportation to work") |
+
+  | `icon` | string | Yes | An emoji or icon identifier representing the expense
+  type |
+
+  | `date` | string (ISO 8601) | Yes | The date of the expense in `YYYY-MM-DD`
+  format |
+
+  | `categoryId` | integer | Yes | The ID of the category this expense belongs
+  to |
+
+  | `amount` | number | Yes | The monetary value of the expense |
+
+
+  ---
+
+
+  ### Response
+
+
+  **Status:** `201 Created`
+
+
+  Returns the newly created expense object:
+
+
+  | Field | Type | Description |
+
+  |---|---|---|
+
+  | `id` | integer | Unique identifier of the created expense record |
+
+  | `name` | string | Name/label of the expense |
+
+  | `icon` | string | Icon or emoji associated with the expense |
+
+  | `date` | string | Date of the expense in `YYYY-MM-DD` format |
+
+  | `amount` | number | Monetary value of the expense |
+
+  | `categoryId` | integer | ID of the associated category |
+
+  | `categoryName` | string | Name of the associated category |
+
+  | `createdAt` | string (ISO 8601) | Timestamp when the record was created |
+
+  | `updatedAt` | string (ISO 8601) | Timestamp when the record was last updated
+  |
+
+
+  ---
+
+
+  ### Notes
+
+
+  - The `date` field must follow the `YYYY-MM-DD` format.
+
+  - The `icon` field accepts any emoji or string identifier.
+
+  - The `categoryId` must reference a valid, existing category in the system.
+url: "{{budget-buddy-backend-development}}/api/{{version}}/expenses"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"transportation to work daily month-02\",\r
+
+    \    \"icon\": \"🚍\",\r
+
+    \    \"date\": \"2026-02-28\",\r
+
+    \    \"categoryId\": 6,\r
+
+    \    \"amount\": 200\r
+
+    }"
+order: 1000

@@ -1,0 +1,84 @@
+$kind: http-request
+description: >-
+  ## Fetch All Expenses
+
+
+  Retrieves all expense records associated with the authenticated user's
+  profile. Returns a list of expense objects ordered by their stored data.
+
+
+  ---
+
+
+  ### Authentication
+
+
+  This request inherits **Bearer token** authentication from the collection
+  level. Ensure a valid token is set in the collection's authorization settings
+  before sending this request.
+
+
+  ---
+
+
+  ### Response
+
+
+  #### 200 OK
+
+
+  Returns an array of expense objects belonging to the authenticated user.
+
+
+  **Sample Response:**
+
+
+  ```json
+
+  [
+    {
+      "id": 5,
+      "name": "transportation to work daily month-01",
+      "icon": "",
+      "date": "2026-01-31",
+      "amount": 400,
+      "categoryId": 6,
+      "categoryName": "transportations",
+      "createdAt": "2026-03-15T15:00:39",
+      "updatedAt": "2026-03-15T15:00:39"
+    }
+  ]
+
+  ```
+
+
+  **Response Fields:**
+
+
+  | Field | Type | Description |
+
+  |---|---|---|
+
+  | `id` | integer | Unique identifier of the expense record |
+
+  | `name` | string | Descriptive name or label for the expense |
+
+  | `icon` | string | Optional icon associated with the expense (may be empty) |
+
+  | `date` | string (date) | The date the expense occurred, in `YYYY-MM-DD`
+  format |
+
+  | `amount` | number | The monetary value of the expense |
+
+  | `categoryId` | integer | Unique identifier of the category this expense
+  belongs to |
+
+  | `categoryName` | string | Human-readable name of the expense category |
+
+  | `createdAt` | string (datetime) | Timestamp of when the record was created |
+
+  | `updatedAt` | string (datetime) | Timestamp of the most recent update to the
+  record |
+url: "{{budget-buddy-backend-development}}/api/{{version}}/expenses"
+method: GET
+order: 2000
