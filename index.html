@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget Buddy API Collections</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <header class="hero">
+        <div class="container">
+            <span class="hero-badge">🚀 API Documentation Showcase</span>
+            <h1>Budget Buddy API Collections</h1>
+            <p class="subtitle">
+                Explore ready-to-run Postman collections for authentication, expense tracking,
+                income management, and reporting workflows for the Budget Buddy platform.
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section aria-labelledby="collections-title">
+            <h2 id="collections-title" class="section-title">Collections</h2>
+            <p class="section-subtitle">
+                Structured request groups with examples for quick testing and onboarding.
+            </p>
+
+            <div id="collectionsGrid" class="collections-grid">
+                <article class="collection-card" data-name="Budget Buddy Core Collection">
+                    <h3 class="card-title">📦 Budget Buddy Core Collection</h3>
+                    <p class="card-description">
+                        Full API flow including user onboarding, categories, and transaction operations.
+                    </p>
+                    <ul class="endpoint-list">
+                        <li>Register / Login / Activate Account</li>
+                        <li>Create and manage categories by type</li>
+                        <li>Create, list, update, and delete incomes & expenses</li>
+                    </ul>
+                </article>
+
+                <article class="collection-card" data-name="Budget Buddy Analytics & Reports">
+                    <h3 class="card-title">📊 Budget Buddy Analytics & Reports</h3>
+                    <p class="card-description">
+                        Focused on insights, filtering, top records, dashboard metrics, and Excel exports.
+                    </p>
+                    <ul class="endpoint-list">
+                        <li>Fetch dashboard summary data</li>
+                        <li>Get top incomes and top expenses</li>
+                        <li>Download or email reports as Excel</li>
+                    </ul>
+                </article>
+
+                <article class="collection-card" data-name="Budget Buddy Date Filters & Search">
+                    <h3 class="card-title">🔎 Budget Buddy Date Filters & Search</h3>
+                    <p class="card-description">
+                        Useful for testing date-range filtering and combined expense/income queries.
+                    </p>
+                    <ul class="endpoint-list">
+                        <li>Filter expenses by date range</li>
+                        <li>Filter incomes by date range</li>
+                        <li>Combined filters for cross-category insights</li>
+                    </ul>
+                </article>
+            </div>
+
+            <p id="emptyState" class="empty-state">No matching collections found. Try a different keyword.</p>
+        </section>
+
+        <section aria-labelledby="features-title">
+            <h2 id="features-title" class="section-title">Key API Capabilities</h2>
+            <p class="section-subtitle">Core modules covered in the collection set.</p>
+
+            <div class="features-grid">
+                <article class="feature-item">
+                    <h3 class="feature-name">🔐 Authentication</h3>
+                    <p class="feature-text">Registration, activation, login, and profile access.</p>
+                </article>
+                <article class="feature-item">
+                    <h3 class="feature-name">💸 Expenses</h3>
+                    <p class="feature-text">Track, filter, total, and rank expense entries.</p>
+                </article>
+                <article class="feature-item">
+                    <h3 class="feature-name">💰 Income</h3>
+                    <p class="feature-text">Create and analyze income records over time.</p>
+                </article>
+                <article class="feature-item">
+                    <h3 class="feature-name">📈 Reports</h3>
+                    <p class="feature-text">Dashboard metrics and top transaction insights.</p>
+                </article>
+                <article class="feature-item">
+                    <h3 class="feature-name">📤 Exports</h3>
+                    <p class="feature-text">Download or email Excel reports for sharing.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            Created by Salem Nabeel Salem •
+            <a href="https://github.com/SalemNabeelSalem/budget-buddy-application-postman" target="_blank"
+                rel="noopener noreferrer">GitHub Repository</a>
+        </div>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const resultCount = document.getElementById("resultCount");
+        const collectionsGrid = document.getElementById("collectionsGrid");
+        const emptyState = document.getElementById("emptyState");
+        const cards = Array.from(collectionsGrid.querySelectorAll(".collection-card"));
+
+        function updateFilter() {
+            const query = searchInput.value.trim().toLowerCase();
+            let visible = 0;
+
+            cards.forEach((card) => {
+                const name = (card.dataset.name || "").toLowerCase();
+                const shouldShow = name.includes(query);
+                card.style.display = shouldShow ? "flex" : "none";
+                if (shouldShow) {
+                    visible += 1;
+                }
+            });
+
+            resultCount.textContent = `Showing ${visible} collection${visible === 1 ? "" : "s"}`;
+            emptyState.style.display = visible === 0 ? "block" : "none";
+        }
+
+        searchInput.addEventListener("input", updateFilter);
+    </script>
+</body>
+
+</html>
