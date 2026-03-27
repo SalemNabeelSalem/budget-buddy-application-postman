@@ -1,5 +1,8 @@
 $kind: http-request
 description: >-
+  ## Update an Existing Category
+
+
   Updates an existing category for a user's budget profile. Categories are used
   to classify transactions as either income or expenses, and can optionally
   include an icon identifier. Authentication is inherited from the collection
@@ -48,8 +51,7 @@ description: >-
     "icon": "💵"
   }
 
-  ```
-
+   ```
 
   ## Response
 
@@ -97,8 +99,8 @@ description: >-
     "updatedDate": "2026-03-14T00:36:24"
   }
 
-  ```
-url: "{{budget-buddy-backend-development}}/api/v1.0/category/24"
+   ```
+url: "{{budget-buddy-backend-development}}/api/{{version}}/category/24"
 method: PUT
 body:
   type: json

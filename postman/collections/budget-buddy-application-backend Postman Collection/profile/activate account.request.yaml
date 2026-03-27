@@ -51,11 +51,11 @@ description: >-
   a `404` response.
       
   - If the token has expired or is invalid, a new registration may be required.
-url: "{{budget-buddy-backend-development}}/api/v1.0/profile/activate?token=f198\
-  ede5-bca5-47f0-affa-c426a5d5d3f6"
+url: "{{budget-buddy-backend-development}}/api/{{version}}/profile/activate?tok\
+  en=4c2fb7c2-d581-4b28-a7e9-8fd7b63e3dca"
 method: GET
 queryParams:
-  token: f198ede5-bca5-47f0-affa-c426a5d5d3f6
+  token: 4c2fb7c2-d581-4b28-a7e9-8fd7b63e3dca
 auth:
   type: noauth
 order: 3000

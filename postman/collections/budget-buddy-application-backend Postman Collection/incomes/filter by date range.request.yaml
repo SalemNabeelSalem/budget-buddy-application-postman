@@ -1,6 +1,6 @@
 $kind: http-request
 description: |-
-  ## Fetch Top Incomes
+  ## Filter Incomes by Date Range
 
   Retrieves a filtered list of income records within a specified date range.
 

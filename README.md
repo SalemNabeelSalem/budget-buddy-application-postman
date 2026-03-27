@@ -200,12 +200,6 @@ budget-buddy-application-backend/
     └── email incomes as excel      # POST — Email incomes Excel to the user
 ```
 
----
-
-## Screenshots
-
-> 📸 _Add screenshots of your Postman requests and responses here to help others get started quickly._
-
 <!-- Example:
 ![Login Request](screenshots/login-request.png)
 ![Fetch Incomes Response](screenshots/fetch-incomes-response.png)

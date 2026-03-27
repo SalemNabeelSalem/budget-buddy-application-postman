@@ -1,0 +1,129 @@
+$kind: http-request
+description: >-
+  ## Register a New User
+
+
+  Creates a new user profile in the Budget Buddy application. This is a **public
+  endpoint** — no authentication is required.
+
+
+  ---
+
+
+  ### Authentication
+
+
+  None. This endpoint is publicly accessible.
+
+
+  ---
+
+
+  ### Request Body
+
+
+  Content-Type: `application/json`
+
+
+  | Field | Type | Required | Description |
+
+  |-------|------|----------|-------------|
+
+  | `fullName` | `string` | Yes | The full name of the user being registered. |
+
+  | `email` | `string` | Yes | A valid, unique email address for the new
+  account. |
+
+  | `password` | `string` | Yes | The account password. Must be provided in
+  plain text — hashing is handled server-side. |
+
+
+  **Example:**
+
+  ```json
+
+  {
+    "fullName": "salem nabeel salem",
+    "email": "docet30766@dolofan.com",
+    "password": "123456"
+  }
+
+  ```
+
+
+  ---
+
+
+  ### Success Response — `201 Created`
+
+
+  Returned when the user profile is successfully created.
+
+
+  ```json
+
+  {
+    "id": 58,
+    "fullName": "salem nabeel salem",
+    "email": "docet30766@dolofan.com",
+    "password": null,
+    "profileImageUrl": null,
+    "createdAt": "2026-03-26T22:50:29.184249",
+    "updatedAt": "2026-03-26T22:50:29.184249"
+  }
+
+  ```
+
+
+  | Field | Type | Description |
+
+  |-------|------|-------------|
+
+  | `id` | `integer` | Auto-generated unique identifier for the new profile. |
+
+  | `fullName` | `string` | The full name provided during registration. |
+
+  | `email` | `string` | The email address associated with the account. |
+
+  | `password` | `null` | Always `null` in the response — the password is never
+  returned for security reasons. |
+
+  | `profileImageUrl` | `string \| null` | URL of the user's profile image.
+  `null` until a profile image is uploaded. |
+
+  | `createdAt` | `string (ISO 8601)` | Timestamp of when the profile was
+  created. |
+
+  | `updatedAt` | `string (ISO 8601)` | Timestamp of the last profile update. |
+
+
+  ---
+
+
+  ### Notes
+
+
+  - The `password` field is **never returned** in any response from this
+  endpoint, even though it is accepted in the request body.
+
+  - The `email` must be unique across all registered users. Attempting to
+  register with a duplicate email will result in an error.
+
+  - `profileImageUrl` defaults to `null` and can be updated after registration
+  via the profile update endpoint.
+url: "{{budget-buddy-backend-development}}/api/{{version}}/profile/register"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"fullName\": \"salem nabeel salem\",\r
+
+    \    \"email\": \"isalemnabeelsalem@gmail.com\",\r
+
+    \    \"password\": \"123456\"\r
+
+    }"
+auth:
+  type: noauth
+order: 1000

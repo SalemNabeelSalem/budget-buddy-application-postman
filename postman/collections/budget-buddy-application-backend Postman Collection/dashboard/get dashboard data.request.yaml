@@ -1,0 +1,235 @@
+$kind: http-request
+description: >-
+  ## Get Dashboard Data
+
+
+  Retrieves a comprehensive financial summary/dashboard overview for the
+  authenticated user's profile. This includes the total balance, total incomes,
+  total expenses, the 5 most recent income entries, the 5 most recent expense
+  entries, and the 10 most recent transactions (a combined mix of incomes and
+  expenses).
+
+
+  ---
+
+
+  ## Authentication
+
+
+  This request inherits **Bearer Token** authentication from the collection
+  level. Ensure a valid token is set at the collection before sending this
+  request.
+
+
+  ```
+
+  Authorization: Bearer {{token}}
+
+  ```
+
+
+  ---
+
+
+  ## Response Fields
+
+
+  | Field | Type | Description |
+
+  |---|---|---|
+
+  | `totalBalance` | `number` | The net balance of the user's profile (total
+  incomes minus total expenses) |
+
+  | `totalIncomes` | `number` | The sum of all income transactions for the
+  user's profile |
+
+  | `totalExpenses` | `number` | The sum of all expense transactions for the
+  user's profile |
+
+  | `recent5Incomes` | `array` | List of the 5 most recent income entries |
+
+  | `recent5Expenses` | `array` | List of the 5 most recent expense entries |
+
+  | `recentTransactions` | `array` | List of the 10 most recent transactions
+  (incomes and expenses combined), ordered by date descending |
+
+
+  ---
+
+
+  ## Array Item Shapes
+
+
+  ### Income Item (`recent5Incomes[]`)
+
+
+  | Field | Type | Description |
+
+  |---|---|---|
+
+  | `id` | `number` | Unique identifier of the income record |
+
+  | `name` | `string` | Descriptive name of the income entry |
+
+  | `icon` | `string` | Emoji icon representing the income |
+
+  | `date` | `string` | Date of the income in `YYYY-MM-DD` format |
+
+  | `amount` | `number` | Monetary value of the income |
+
+  | `categoryId` | `number` | ID of the associated income category |
+
+  | `categoryName` | `string` | Name of the associated income category |
+
+  | `categoryType` | `string` | Always `"income"` for this array |
+
+  | `createdAt` | `string` | ISO 8601 timestamp of when the record was created |
+
+  | `updatedAt` | `string` | ISO 8601 timestamp of when the record was last
+  updated |
+
+
+  ### Expense Item (`recent5Expenses[]`)
+
+
+  | Field | Type | Description |
+
+  |---|---|---|
+
+  | `id` | `number` | Unique identifier of the expense record |
+
+  | `name` | `string` | Descriptive name of the expense entry |
+
+  | `icon` | `string` | Emoji icon representing the expense |
+
+  | `date` | `string` | Date of the expense in `YYYY-MM-DD` format |
+
+  | `amount` | `number` | Monetary value of the expense |
+
+  | `categoryId` | `number` | ID of the associated expense category |
+
+  | `categoryName` | `string` | Name of the associated expense category |
+
+  | `categoryType` | `string` | Always `"expense"` for this array |
+
+  | `createdAt` | `string` | ISO 8601 timestamp of when the record was created |
+
+  | `updatedAt` | `string` | ISO 8601 timestamp of when the record was last
+  updated |
+
+
+  ### Transaction Item (`recentTransactions[]`)
+
+
+  | Field | Type | Description |
+
+  |---|---|---|
+
+  | `id` | `number` | Unique identifier of the transaction record |
+
+  | `profileId` | `number` | ID of the user profile this transaction belongs to
+  |
+
+  | `icon` | `string` | Emoji icon representing the transaction |
+
+  | `name` | `string` | Descriptive name of the transaction |
+
+  | `amount` | `number` | Monetary value of the transaction |
+
+  | `date` | `string` | Date of the transaction in `YYYY-MM-DD` format |
+
+  | `type` | `string` | Type of transaction — either `"income"` or `"expense"` |
+
+  | `createdAt` | `string` | ISO 8601 timestamp of when the record was created |
+
+  | `updatedAt` | `string` | ISO 8601 timestamp of when the record was last
+  updated |
+
+
+  ---
+
+
+  ## Sample Success Response
+
+
+  ```json
+
+  {
+    "totalBalance": 13250,
+    "totalIncomes": 15400,
+    "totalExpenses": 2150,
+    "recent5Incomes": [
+      {
+        "id": 36,
+        "name": "year-end bonus advance",
+        "icon": "💲",
+        "date": "2026-09-20",
+        "amount": 2200,
+        "categoryId": 23,
+        "categoryName": "bonus",
+        "categoryType": "income",
+        "createdAt": "2026-03-26T20:28:14",
+        "updatedAt": "2026-03-26T20:28:14"
+      }
+    ],
+    "recent5Expenses": [
+      {
+        "id": 7,
+        "name": "transportation to work daily month-03",
+        "icon": "🚍",
+        "date": "2026-03-30",
+        "amount": 500,
+        "categoryId": 6,
+        "categoryName": "transportations",
+        "categoryType": "expense",
+        "createdAt": "2026-03-23T21:13:05",
+        "updatedAt": "2026-03-23T21:13:05"
+      }
+    ],
+    "recentTransactions": [
+      {
+        "id": 36,
+        "profileId": 57,
+        "icon": "💲",
+        "name": "year-end bonus advance",
+        "amount": 2200,
+        "date": "2026-09-20",
+        "createdAt": "2026-03-26T20:28:14",
+        "updatedAt": "2026-03-26T20:28:14",
+        "type": "income"
+      },
+      {
+        "id": 7,
+        "profileId": 57,
+        "icon": "🚍",
+        "name": "transportation to work daily month-03",
+        "amount": 500,
+        "date": "2026-03-30",
+        "createdAt": "2026-03-23T21:13:05",
+        "updatedAt": "2026-03-23T21:13:05",
+        "type": "expense"
+      }
+    ]
+  }
+
+  ```
+
+
+  ---
+
+
+  ## Status Codes
+
+
+  | Status Code | Description |
+
+  |---|---|
+
+  | `200 OK` | Request was successful. Returns the dashboard summary for the
+  authenticated user's profile |
+
+  | `401 Unauthorized` | Missing or invalid Bearer token |
+url: "{{budget-buddy-backend-development}}/api/{{version}}/dashboard"
+method: GET
+order: 1000

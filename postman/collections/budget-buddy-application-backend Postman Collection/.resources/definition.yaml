@@ -1,6 +1,6 @@
 $kind: collection
 description: >-
-  # Budget Buddy — Backend API
+  # Budget Buddy — Backend API Postman Collection
 
 
   This collection covers the full backend API for the **Budget Buddy** personal
@@ -49,8 +49,8 @@ description: >-
   `{{budget-buddy-backend-production}}` environment variable as the base URL.
   Make sure the appropriate environment is active before sending requests.
 auth:
-  - id: 967ff90f-17cb-4152-8d28-9657bfd2e52a
+  - id: 9cbc36d8-6f37-4127-9d16-ae39252c932e
     type: bearer
     name: bearer auth
     credentials:
-      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpc2FsZW1uYWJlZWxzYWxlbUBnbWFpbC5jb20iLCJpYXQiOjE3NzQxOTM2NjEsImV4cCI6MTc3NDIyOTY2MX0.LcCCsC_FHAeDjBcJwbSRbHnqfT_e1U7hwjPl5Dx3p78
+      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpc2FsZW1uYWJlZWxzYWxlbUBnbWFpbC5jb20iLCJpYXQiOjE3NzQ2MDIyOTIsImV4cCI6MTc3NDYzODI5Mn0.N9MC42IED8q9kH3RX1id8vQDVM5N27tSFxqFsAzi5qU

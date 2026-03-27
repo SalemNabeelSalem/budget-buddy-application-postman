@@ -1,0 +1,96 @@
+$kind: http-request
+description: >-
+  ## Fetch All Categories by Type
+
+
+  Retrieves all categories associated with the authenticated user's profile,
+  filtered by the specified category `type`.
+
+
+  ---
+
+
+  ### Authentication
+
+
+  Uses **Bearer token** inherited from the collection. No additional auth
+  configuration is needed at the request level.
+
+
+  ---
+
+
+  ### Query Parameters
+
+
+  | Parameter | Type | Required | Description |
+
+  | --- | --- | --- | --- |
+
+  | `type` | string | ✅ Yes | The category type to filter by. Accepted values:
+  `expense`, `income` |
+
+
+  ---
+
+
+  ### Response
+
+
+  Returns a **200 OK** with an array of category objects.
+
+
+  **Response fields:**
+
+
+  | Field | Type | Description |
+
+  | --- | --- | --- |
+
+  | `id` | number | Unique identifier of the category |
+
+  | `profileId` | number | ID of the profile this category belongs to |
+
+  | `name` | string | Name of the category (e.g. `rent`, `electricity`) |
+
+  | `icon` | string | Icon associated with the category |
+
+  | `type` | string | Category type — `expense` or `income` |
+
+  | `createdDate` | string | ISO 8601 timestamp of creation |
+
+  | `updatedDate` | string | ISO 8601 timestamp of last update |
+
+
+  **Example response:**
+
+
+  ``` json
+
+  [
+    {
+      "id": 12,
+      "profileId": 57,
+      "name": "rent",
+      "icon": "",
+      "type": "expense",
+      "createdDate": "2026-03-08T15:16:32",
+      "updatedDate": "2026-03-08T15:16:32"
+    },
+    {
+      "id": 13,
+      "profileId": 57,
+      "name": "electricity",
+      "icon": "",
+      "type": "expense",
+      "createdDate": "2026-03-08T15:16:59",
+      "updatedDate": "2026-03-08T15:16:59"
+    }
+  ]
+
+   ```
+url: "{{budget-buddy-backend-development}}/api/{{version}}/category?type=income"
+method: GET
+queryParams:
+  type: income
+order: 2000

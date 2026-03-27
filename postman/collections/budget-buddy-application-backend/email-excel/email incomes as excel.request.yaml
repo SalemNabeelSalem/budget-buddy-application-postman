@@ -1,4 +1,0 @@
-$kind: http-request
-url: "{{budget-buddy-backend-development}}/api/{{version}}/email/excel-incomes"
-method: GET
-order: 1000

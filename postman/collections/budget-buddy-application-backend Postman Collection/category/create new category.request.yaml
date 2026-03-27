@@ -1,5 +1,8 @@
 $kind: http-request
 description: >-
+  ## Create New Category
+
+
   Creates a new category for a user's budget profile. Categories are used to
   classify transactions as either income or expenses, and can optionally include
   an icon identifier.
@@ -85,7 +88,7 @@ description: >-
   }
 
    ```
-url: "{{budget-buddy-backend-development}}/api/v1.0/category/create"
+url: "{{budget-buddy-backend-development}}/api/{{version}}/category/create"
 method: POST
 body:
   type: json

@@ -1,0 +1,101 @@
+$kind: http-request
+description: >-
+  ## Fetch Total Amount of All Expenses
+
+
+  Retrieves the total sum of all expense records associated with the
+  authenticated user's profile. This is a summary endpoint useful for displaying
+  aggregate expense data on dashboards or financial overview screens.
+
+
+  ---
+
+
+  ### Authentication
+
+
+  This request inherits **Bearer token** authentication from the collection.
+  Ensure a valid JWT token is set at the collection level before sending this
+  request.
+
+
+  ---
+
+
+  ### Endpoint
+
+
+  `GET /api/{{version}}/expenses/summary/total`
+
+
+  ---
+
+
+  ### Path / URL Variables
+
+
+  | Variable | Description |
+
+  |---|---|
+
+  | `budget-buddy-backend-development` | Base URL of the backend service
+  (development environment) |
+
+  | `version` | API version (e.g., `v1.0`) |
+
+
+  ---
+
+
+  ### Request Body
+
+
+  None — this is a `GET` request and does not require a request body.
+
+
+  ---
+
+
+  ### Response
+
+
+  **Status:** `200 OK`
+
+
+  Returns a JSON object containing the total sum of all expenses for the
+  authenticated user.
+
+
+  **Response Body:**
+
+
+  ```json
+
+  {
+    "totalExpensesAmount": 800
+  }
+
+  ```
+
+
+  | Field | Type | Description |
+
+  |---|---|---|
+
+  | `totalExpensesAmount` | `number` | The total sum of all expense amounts for
+  the user's profile |
+
+
+  ---
+
+
+  ### Notes
+
+
+  - The total is calculated across **all** expense records for the authenticated
+  user, regardless of category, date, or type.
+
+  - This endpoint is read-only and does not modify any data.
+url: "{{budget-buddy-backend-development}}/api/{{version}}/expenses/summary/total"
+method: GET
+order: 5000

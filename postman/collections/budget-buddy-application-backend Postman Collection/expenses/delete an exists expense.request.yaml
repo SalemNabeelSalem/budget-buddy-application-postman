@@ -1,0 +1,76 @@
+$kind: http-request
+description: >-
+  ## Delete an Existing Expense
+
+
+  Permanently deletes an expense record identified by its unique `id`. Once
+  deleted, the record cannot be recovered.
+
+
+  ---
+
+
+  ### Authentication
+
+
+  This request inherits **Bearer token** authentication from the collection
+  level. Ensure a valid token is set in the collection's authorization settings
+  before sending this request.
+
+
+  ---
+
+
+  ### Path Parameters
+
+
+  | Parameter | Type | Required | Description |
+
+  | --- | --- | --- | --- |
+
+  | `id` | integer | Yes | The unique identifier of the expense to delete. |
+
+
+  ---
+
+
+  ### Responses
+
+
+  #### ✅ 204 NO CONTENT — Expense Deleted Successfully
+
+
+  Returned when the expense record is found and successfully deleted.
+
+
+  #### ❌ 404 Not Found — Expense Not Found
+
+
+  Returned when no expense record exists with the provided `id`.
+
+
+  ``` json
+
+  {
+    "message": "expense not found with id: 5"
+  }
+
+   ```
+
+  ---
+
+
+  ### Notes
+
+
+  - This operation is **irreversible**. Once an expense is deleted, it cannot be
+  restored.
+      
+  - Make sure the `id` in the URL corresponds to an existing expense belonging
+  to the authenticated user's profile.
+      
+  - The `id` in the URL (`/expenses/5`) can be replaced with any valid expense
+  ID using a path variable or by editing the URL directly.
+url: "{{budget-buddy-backend-development}}/api/{{version}}/expenses/5"
+method: DELETE
+order: 6000

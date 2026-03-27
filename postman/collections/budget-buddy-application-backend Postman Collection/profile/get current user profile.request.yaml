@@ -76,6 +76,6 @@ description: >-
   | `401 Unauthorized` | Missing or invalid Bearer token |
 
   | `403 Forbidden` | Token is expired or lacks required permissions |
-url: "{{budget-buddy-backend-development}}/api/v1.0/profile/me"
+url: "{{budget-buddy-backend-development}}/api/{{version}}/profile/me"
 method: GET
 order: 4000

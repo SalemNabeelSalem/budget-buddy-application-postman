@@ -1,0 +1,102 @@
+$kind: http-request
+description: >
+  
+  Retrieves the top N expenses from the Budget Buddy application, ordered by
+  amount in descending order. Use the `limit` query parameter to control how
+  many results are returned.
+
+
+  ---
+
+
+  ### Query Parameters
+
+
+  | Name | Type | Required | Description |
+
+  |------|------|----------|-------------|
+
+  | `limit` | integer | Yes | The maximum number of top expenses to return.
+  Example: `5` |
+
+
+  ---
+
+
+  ### Response Fields
+
+
+  | Field | Type | Description |
+
+  |-------|------|-------------|
+
+  | `id` | integer | Unique identifier of the expense |
+
+  | `name` | string | Descriptive name of the expense |
+
+  | `icon` | string | Emoji icon associated with the expense |
+
+  | `date` | string (date) | Date of the expense in `YYYY-MM-DD` format |
+
+  | `amount` | number | Monetary amount of the expense |
+
+  | `categoryId` | integer | Unique identifier of the expense category |
+
+  | `categoryName` | string | Name of the expense category |
+
+  | `createdAt` | string (datetime) | Timestamp when the record was created |
+
+  | `updatedAt` | string (datetime) | Timestamp when the record was last updated
+  |
+
+
+  ---
+
+
+  ### Sample Response (200 OK)
+
+
+  ```json
+
+  [
+    {
+      "id": 7,
+      "name": "transportation to work daily month-03",
+      "icon": "🚍",
+      "date": "2026-03-30",
+      "amount": 500,
+      "categoryId": 6,
+      "categoryName": "transportations",
+      "createdAt": "2026-03-23T21:13:05",
+      "updatedAt": "2026-03-23T21:13:05"
+    },
+    {
+      "id": 6,
+      "name": "transportation to work daily month-02",
+      "icon": "🚍",
+      "date": "2026-02-28",
+      "amount": 200,
+      "categoryId": 6,
+      "categoryName": "transportations",
+      "createdAt": "2026-03-22T19:45:41",
+      "updatedAt": "2026-03-22T19:45:41"
+    },
+    {
+      "id": 5,
+      "name": "salary month-07",
+      "icon": "",
+      "date": "2026-01-30",
+      "amount": 100,
+      "categoryId": 6,
+      "categoryName": "transportations",
+      "createdAt": "2026-03-15T15:00:39",
+      "updatedAt": "2026-03-15T15:00:39"
+    }
+  ]
+
+  ```
+url: "{{budget-buddy-backend-development}}/api/{{version}}/expenses/top?limit=5"
+method: GET
+queryParams:
+  limit: "5"
+order: 3000

@@ -5,7 +5,7 @@ workspace:
 # Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
 cloudResources:
   collections:
-    ..\postman\collections\budget-buddy-application-backend: 10344410-fd256e22-a394-4185-82bb-173773addf8b
+    ..\postman\collections\budget-buddy-application-backend Postman Collection: 10344410-fd256e22-a394-4185-82bb-173773addf8b
   environments:
     ..\postman\environments\budget-buddy-application.environment.yaml: 10344410-e805b03d-ca65-4d29-b478-59c98c755f1f
 

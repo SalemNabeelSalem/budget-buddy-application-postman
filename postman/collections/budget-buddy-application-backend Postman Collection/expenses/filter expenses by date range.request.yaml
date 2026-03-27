@@ -1,0 +1,139 @@
+$kind: http-request
+description: >-
+  ## Filter Expenses by Date Range
+
+
+  Retrieves a filtered list of expense records within a specified date range.
+  Use the `start-date` and `end-date` query parameters to narrow down results to
+  a particular period. Returns all matching expenses sorted by date in
+  descending order.
+
+
+  ---
+
+
+  ## Endpoint
+
+
+  ```
+
+  GET {{budget-buddy-backend-development}}/api/{{version}}/expenses/filters
+
+   ```
+
+  ---
+
+
+  ## Query Parameters
+
+
+  | Parameter | Type | Required | Description | Example |
+
+  | --- | --- | --- | --- | --- |
+
+  | `start-date` | string | Yes | The start of the date range (inclusive,
+  `YYYY-MM-DD`) | `2026-01-01` |
+
+  | `end-date` | string | Yes | The end of the date range (inclusive,
+  `YYYY-MM-DD`) | `2026-04-01` |
+
+
+  ---
+
+
+  ## Authentication
+
+
+  This request inherits **Bearer Token** authentication from the collection
+  level. Ensure the token is set in the `budget-buddy-application` environment
+  or at the collection level before sending the request.
+
+
+  ```
+
+  Authorization: Bearer {{token}}
+
+   ```
+
+  ---
+
+
+  ## Response
+
+
+  ### Response Fields
+
+
+  | Field | Type | Description |
+
+  | --- | --- | --- |
+
+  | `id` | integer | Unique identifier of the expense record |
+
+  | `name` | string | Descriptive name of the expense |
+
+  | `icon` | string | Emoji icon associated with the expense |
+
+  | `date` | string | Date of the expense (`YYYY-MM-DD`) |
+
+  | `amount` | number | Monetary amount of the expense |
+
+  | `categoryId` | integer | Unique identifier of the associated category |
+
+  | `categoryName` | string | Name of the associated category |
+
+  | `createdAt` | string | Timestamp when the record was created (ISO 8601) |
+
+  | `updatedAt` | string | Timestamp when the record was last updated (ISO 8601)
+  |
+
+
+  ### 200 OK — Success
+
+
+  ``` json
+
+  [
+    {
+      "id": 7,
+      "name": "transportation to work daily month-03",
+      "icon": "🚍",
+      "date": "2026-03-30",
+      "amount": 500,
+      "categoryId": 6,
+      "categoryName": "transportations",
+      "createdAt": "2026-03-23T21:13:05",
+      "updatedAt": "2026-03-23T21:13:05"
+    },
+    {
+      "id": 6,
+      "name": "transportation to work daily month-02",
+      "icon": "🚍",
+      "date": "2026-02-28",
+      "amount": 200,
+      "categoryId": 6,
+      "categoryName": "transportations",
+      "createdAt": "2026-03-22T19:45:41",
+      "updatedAt": "2026-03-22T19:45:41"
+    },
+    {
+      "id": 5,
+      "name": "salary month-07",
+      "icon": "",
+      "date": "2026-01-30",
+      "amount": 100,
+      "categoryId": 6,
+      "categoryName": "transportations",
+      "createdAt": "2026-03-15T15:00:39",
+      "updatedAt": "2026-03-15T15:00:39"
+    }
+  ]
+
+   ```
+url: "{{budget-buddy-backend-development}}/api/{{version}}/expenses/filters?sta\
+  rt-date=2026-01-01&end-date=2026-04-01"
+method: GET
+queryParams:
+  start-date: 2026-01-01
+  end-date: 2026-04-01
+order: 4000
