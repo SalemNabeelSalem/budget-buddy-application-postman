@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{budget-buddy-backend-development}}/api/{{version}}/expenses/7"
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"transportation to work daily month-03\",\r
+
+    \    \"icon\": \"🚍\",\r
+
+    \    \"date\": \"2026-03-30\",\r
+
+    \    \"amount\": 500.00,\r
+
+    \    \"categoryId\": 6\r
+
+    }"
+order: 5000
