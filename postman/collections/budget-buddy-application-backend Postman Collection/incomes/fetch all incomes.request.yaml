@@ -1,4 +1,4 @@
 $kind: http-request
-url: "{{budget-buddy-backend-development}}/api/{{version}}/incomes"
+url: "{{budget-buddy-backend-production}}/api/{{version}}/incomes"
 method: GET
 order: 2000

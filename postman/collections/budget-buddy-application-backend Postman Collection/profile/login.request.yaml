@@ -1,5 +1,5 @@
 $kind: http-request
-url: "{{budget-buddy-backend-development}}/api/{{version}}/profile/login"
+url: "{{budget-buddy-backend-production}}/api/{{version}}/profile/login"
 method: POST
 body:
   type: json
